@@ -48,7 +48,7 @@ class eudedashboard_renderer extends \plugin_renderer_base {
         $response .= $this->header();
 
         $html = html_writer::start_div('row');
-        $html .= html_writer::start_div('col-md-10 offset-md-1');
+        $html .= html_writer::start_div('col-xs-12 col-md-12 col-lg-10  offset-lg-1');
 
         $html .= html_writer::start_tag('ul',
                                         array('class' => 'nav nav-tabs nav-tabs-responsive',

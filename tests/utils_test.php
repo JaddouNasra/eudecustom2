@@ -3038,7 +3038,7 @@ class local_eudecustom_testcase extends advanced_testcase {
         $image->sortorder = 0;
 
         $record = $DB->insert_record('files', $image, false);
-
+        $this->assertNotEmpty($record);
         // Testing the function with course1 (expected result: .../cover.jpeg).
         $result1 = get_dashboard_course_imagepath($course1->id);
         $this->assertEquals($CFG->wwwroot . "/pluginfile.php/$image->contextid/course/overviewfiles/$image->filename", $result1);

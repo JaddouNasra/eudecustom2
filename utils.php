@@ -1639,7 +1639,8 @@ function get_dashboard_student_data($userid) {
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursename = $dashboardentry->coursename;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->timestart = $dashboardentry->timestart;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseid = $dashboardentry->courseid;
-        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->filterclasses = get_dashboard_course_filterclasses($userid, $dashboardentry->courseid, $dashboardentry->timestart, $dashboardentry->timeend);
+        $fclasses = get_dashboard_course_filterclasses($userid, $dashboardentry->courseid, $dashboardentry->timestart);
+        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->filterclasses = $fclasses;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseimagepath = get_dashboard_course_imagepath($dashboardentry->courseid);
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->completionstatus = get_dashboard_course_completion($userid, $dashboardentry->courseid);
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursefinalgrade = get_dashboard_course_finalgrade($userid, $dashboardentry->courseid);
@@ -1699,7 +1700,7 @@ function get_dashboard_teacher_data($userid) {
                  JOIN {context} CTX ON CTX.id = RA.contextid
                  JOIN {course} C ON C.id = CTX.instanceid
                  JOIN {course_categories} CC ON CC.id = C.category
-                 JOIN {user_enrolments} UE ON UE.userid = RA.userid 
+                 JOIN {user_enrolments} UE ON UE.userid = RA.userid
                 WHERE UE.userid = :userid
                       AND CTX.contextlevel = :context
                       AND R.shortname = :role
@@ -1767,7 +1768,7 @@ function check_user_is_teacher($userid) {
                  JOIN {context} CTX ON CTX.id = RA.contextid
                  JOIN {course} C ON C.id = CTX.instanceid
                  JOIN {course_categories} CC ON CC.id = C.category
-                 JOIN {user_enrolments} UE ON UE.userid = RA.userid 
+                 JOIN {user_enrolments} UE ON UE.userid = RA.userid
                 WHERE UE.userid = :userid
                       AND CTX.contextlevel = :context
                       AND R.shortname = :role
@@ -1841,7 +1842,7 @@ function get_dashboard_course_completion($userid, $courseid) {
         $data = $completionpercent;
     }
 
-    return $data=20;
+    return $data;
 }
 
 /**
@@ -1969,10 +1970,9 @@ function get_dashboard_course_finalgrade($userid, $courseid) {
  * @param int $userid
  * @param int $courseid
  * @param int $timestart
- * @param int $timeend
  * @return string $data classes for renderer
  */
-function get_dashboard_course_filterclasses($userid, $courseid, $timestart, $timeend) {
+function get_dashboard_course_filterclasses($userid, $courseid, $timestart) {
     $data = "dashboardcourse";
 
     $data .= check_dashboard_course_incourse($timestart);
@@ -2045,7 +2045,7 @@ function get_next_convocatory($coursesinfo) {
 }
 
 /**
- * This function returns classes to include in the dashboard for filter purposes if 
+ * This function returns classes to include in the dashboard for filter purposes if
  * he is in a course as a teacher with active students
  *
  * @param int $courseid
@@ -2074,7 +2074,7 @@ function check_dashboard_active_users_in_course($courseid) {
         'time' => time(),
         ));
 
-    if($record && $record->activestudents > 0) {
+    if ($record && $record->activestudents > 0) {
            $data = "activestudents";
     }
 
@@ -2104,7 +2104,7 @@ function check_dashboard_pending_activities_in_course($courseid) {
         }
     }
 
-    if($needsgrading > 0) {
+    if ($needsgrading > 0) {
         $data = "pendingactivities";
     }
 
@@ -2129,7 +2129,7 @@ function check_dashboard_pending_messages_in_course($courseid) {
         $unreadposts += forum_tp_count_forum_unread_posts($forumcm, $course, true);
     }
 
-    if($unreadposts > 0) {
+    if ($unreadposts > 0) {
         $data = "pendingmessages";
     }
 
