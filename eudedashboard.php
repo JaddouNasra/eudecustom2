@@ -64,9 +64,8 @@ $sesskey = sesskey();
 $isteacher = check_user_is_teacher($USER->id);
 
 // Call the functions of the renderar that prints the content.
-if (!$isteacher) {
+if ($isteacher) {
     $teacherdata = get_dashboard_teacher_data($USER->id);
-    $teacherdata = get_dashboard_teacher_data(3);
     echo $output->eude_dashboard_teacher_page($teacherdata);
 } else {
     $studentdata = get_dashboard_student_data($USER->id);

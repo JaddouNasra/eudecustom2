@@ -869,13 +869,12 @@ define(['jquery', 'jqueryui'], function ($) {
                         e.preventDefault();
                     }
                 });
-                $('a.nav-link').on( "click", function(e) {
+                $('a.nav-link').on( "click", function() {
                     $("li.nav-item").removeClass('active');
                     $(this).closest("li.nav-item").addClass('active');
                     var cat = $(this).attr('href');
                     $(cat).find('button.dashboardbtn.dashboardbtntotal').click();
                 });
-                'use strict';
                 $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function(e) {
                     var $target = $(e.target);
                     var $tabs = $target.closest('.nav-tabs-responsive');

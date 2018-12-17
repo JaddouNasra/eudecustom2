@@ -3108,7 +3108,6 @@ class local_eudecustom_testcase extends advanced_testcase {
      * Tests for phpunit.
      */
     public function test_check_dashboard_course_incourse() {
-        global $DB;
         $this->resetAfterTest(true);
 
         $timestart1 = time() + 100000;
@@ -3127,7 +3126,6 @@ class local_eudecustom_testcase extends advanced_testcase {
      * Tests for phpunit.
      */
     public function test_check_dashboard_course_pending() {
-        global $DB;
         $this->resetAfterTest(true);
 
         $timestart1 = time() + 100000;
@@ -3152,10 +3150,8 @@ class local_eudecustom_testcase extends advanced_testcase {
         $manualplugin = self::enable_enrol_plugin();
         $this->assertNotEmpty($manualplugin);
         $studentrole = self::get_student_role();
-        $rawgrade = 100;
         $today = time();
         $year = 31557600;
-        $pasttime = $today - $year;
 
         $student1 = $this->getDataGenerator()->create_user(array('firstname' => "USUARIO 1"));
 
@@ -3218,10 +3214,8 @@ class local_eudecustom_testcase extends advanced_testcase {
         $manualplugin = self::enable_enrol_plugin();
         $this->assertNotEmpty($manualplugin);
         $studentrole = self::get_student_role();
-        $rawgrade = 100;
         $today = time();
         $year = 31557600;
-        $pasttime = $today - $year;
 
         $student1 = $this->getDataGenerator()->create_user(array('firstname' => "USUARIO 1"));
 
@@ -3282,10 +3276,8 @@ class local_eudecustom_testcase extends advanced_testcase {
         $manualplugin = self::enable_enrol_plugin();
         $this->assertNotEmpty($manualplugin);
         $studentrole = self::get_student_role();
-        $rawgrade = 100;
         $today = time();
         $year = 31557600;
-        $pasttime = $today - $year;
 
         $student1 = $this->getDataGenerator()->create_user(array('firstname' => "USUARIO 1"));
 
@@ -3346,10 +3338,8 @@ class local_eudecustom_testcase extends advanced_testcase {
         $manualplugin = self::enable_enrol_plugin();
         $this->assertNotEmpty($manualplugin);
         $studentrole = self::get_student_role();
-        $rawgrade = 100;
         $today = time();
         $year = 31557600;
-        $pasttime = $today - $year;
 
         $student1 = $this->getDataGenerator()->create_user(array('firstname' => "USUARIO 1"));
 
@@ -3404,7 +3394,6 @@ class local_eudecustom_testcase extends advanced_testcase {
      * Tests for phpunit.
      */
     public function test_get_average_course_completion() {
-        global $DB;
         $this->resetAfterTest(true);
 
         // Set up an arrays of objects with a completionstatus parameter.
@@ -3441,7 +3430,6 @@ class local_eudecustom_testcase extends advanced_testcase {
      * Tests for phpunit.
      */
     public function test_get_next_convocatory() {
-        global $DB;
         $this->resetAfterTest(true);
 
         // Set up an arrays of objects with a timestart parameter.

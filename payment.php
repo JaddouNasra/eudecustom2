@@ -116,9 +116,9 @@ if (optional_param('amount', 1, PARAM_FLOAT) == 0) {
         $name = $CFG->local_eudecustom_tpv_name;
         $code = $CFG->local_eudecustom_tpv_code;
         $terminal = $CFG->local_eudecustom_tpv_terminal;
-                $order_part1 = str_pad($USER->id, 4, '0', STR_PAD_LEFT);
-                $order_part2 = str_pad("_", 12 - (strlen($order_part1)), '' . mt_rand(0, 9999999), STR_PAD_RIGHT);
-                $order = substr($order_part1 . $order_part2, 0, 12);
+                $orderpart1 = str_pad($USER->id, 4, '0', STR_PAD_LEFT);
+                $orderpart2 = str_pad("_", 12 - (strlen($orderpart1)), '' . mt_rand(0, 9999999), STR_PAD_RIGHT);
+                $order = substr($orderpart1 . $orderpart2, 0, 12);
         $currency = '978';
         $consumerlng = '001';
         $transactiontype = '0';

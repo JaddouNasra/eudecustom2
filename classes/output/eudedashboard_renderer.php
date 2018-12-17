@@ -44,9 +44,6 @@ class eudedashboard_renderer extends \plugin_renderer_base {
      * @return string html to output.
      */
     public function eude_dashboard_student_page($data) {
-        global $CFG;
-        global $OUTPUT;
-        global $USER;
         $response = '';
         $response .= $this->header();
 
@@ -99,9 +96,6 @@ class eudedashboard_renderer extends \plugin_renderer_base {
      * @return string html to output.
      */
     public function eude_dashboard_teacher_page($data) {
-        global $CFG;
-        global $OUTPUT;
-        global $USER;
         $response = '';
         $response .= $this->header();
 
@@ -316,7 +310,7 @@ class eudedashboard_renderer extends \plugin_renderer_base {
         $html .= html_writer::start_tag('div', array('class' => "dashboardcoursefooter"));
         if (strpos($coursedata->filterclasses, "pending") !== false) {
             $html .= html_writer::tag('span', get_string('eudedashboardupcomingcourse', 'local_eudecustom'),
-                                      array('class' => "dashboardcoursefinalgrade"));
+                                      array('class' => "dashboardcourseupcomingmessage"));
         } else {
             $html .= html_writer::tag('span', $coursedata->coursefinalgrade, array('class' => "dashboardcoursefinalgrade"));
 

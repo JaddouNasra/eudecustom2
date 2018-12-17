@@ -1615,7 +1615,7 @@ function get_dashboard_student_data($userid) {
                  JOIN {context} CTX ON CTX.id = RA.contextid
                  JOIN {course} C ON C.id = CTX.instanceid
                  JOIN {course_categories} CC ON CC.id = C.category
-                 JOIN {user_enrolments} UE ON UE.userid = RA.userid 
+                 JOIN {user_enrolments} UE ON UE.userid = RA.userid
                 WHERE UE.userid = :userid
                       AND CTX.contextlevel = :context
                       AND R.shortname = :role
@@ -1639,14 +1639,10 @@ function get_dashboard_student_data($userid) {
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursename = $dashboardentry->coursename;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->timestart = $dashboardentry->timestart;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseid = $dashboardentry->courseid;
-        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->filterclasses =
-                get_dashboard_course_filterclasses($userid, $dashboardentry->courseid, $dashboardentry->timestart, $dashboardentry->timeend);
-        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseimagepath =
-                get_dashboard_course_imagepath($dashboardentry->courseid);
-        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->completionstatus =
-                get_dashboard_course_completion($userid, $dashboardentry->courseid);
-        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursefinalgrade =
-                get_dashboard_course_finalgrade($userid, $dashboardentry->courseid);
+        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->filterclasses = get_dashboard_course_filterclasses($userid, $dashboardentry->courseid, $dashboardentry->timestart, $dashboardentry->timeend);
+        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseimagepath = get_dashboard_course_imagepath($dashboardentry->courseid);
+        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->completionstatus = get_dashboard_course_completion($userid, $dashboardentry->courseid);
+        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursefinalgrade = get_dashboard_course_finalgrade($userid, $dashboardentry->courseid);
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursecatname = $dashboardentry->catname;
     }
 
@@ -1732,7 +1728,7 @@ function get_dashboard_teacher_data($userid) {
         $processeddata->courses[$dashboardentry->courseid]->pendingactivities =
                 check_dashboard_pending_activities_in_course($dashboardentry->courseid);
         $processeddata->courses[$dashboardentry->courseid]->pendingmessages =
-                check_dashboard_pending_messages_in_course($userid, $dashboardentry->courseid);
+                check_dashboard_pending_messages_in_course($dashboardentry->courseid);
         $processeddata->courses[$dashboardentry->courseid]->courseimagepath =
                 get_dashboard_course_imagepath($dashboardentry->courseid);
         $processeddata->courses[$dashboardentry->courseid]->coursecatname = $dashboardentry->catname;
@@ -1775,8 +1771,7 @@ function check_user_is_teacher($userid) {
                 WHERE UE.userid = :userid
                       AND CTX.contextlevel = :context
                       AND R.shortname = :role
-                      AND UE.enrolid IN (select id from {enrol} where courseid = C.id)
-             ORDER BY CC.name ASC, UE.timestart ASC";
+                      AND UE.enrolid IN (select id from {enrol} where courseid = C.id)";
 
     $data = $DB->get_record_sql($sql, array(
         'userid' => $userid,
@@ -1846,7 +1841,7 @@ function get_dashboard_course_completion($userid, $courseid) {
         $data = $completionpercent;
     }
 
-    return $data;
+    return $data=20;
 }
 
 /**
@@ -1996,7 +1991,7 @@ function get_dashboard_course_filterclasses($userid, $courseid, $timestart, $tim
  * @param int $courseid
  * @return string $data classes for renderer
  */
-function get_dashboard_course_teacherfilterclasses($userid, $courseid) {
+function get_dashboard_course_teacherfilterclasses($courseid) {
     $data = "dashboardcourse";
 
     $data .= check_dashboard_course_pendingactivities($courseid);
@@ -2036,7 +2031,6 @@ function get_next_convocatory($coursesinfo) {
     $data = "";
 
     if ($coursesinfo) {
-        $firstconvocatory = 0;
         $startdates = array();
         foreach ($coursesinfo as $singleinfo) {
             array_push($startdates, $singleinfo->timestart);
@@ -2066,7 +2060,7 @@ function check_dashboard_active_users_in_course($courseid) {
                  JOIN {role} R ON R.id = RA.roleid
                  JOIN {context} CTX ON CTX.id = RA.contextid
                  JOIN {course} C ON C.id = CTX.instanceid
-                 JOIN {user_enrolments} UE ON UE.userid = RA.userid 
+                 JOIN {user_enrolments} UE ON UE.userid = RA.userid
                 WHERE C.id = :courseid
                       AND CTX.contextlevel = :context
                       AND R.shortname = :shortname
@@ -2120,11 +2114,10 @@ function check_dashboard_pending_activities_in_course($courseid) {
 /**
  * This function returns classes to include in the dashboard for filter purposes if he has any pending forum messages to read
  *
- * @param int $userid
  * @param int $courseid
  * @return string $data classes for renderer
  */
-function check_dashboard_pending_messages_in_course($userid, $courseid) {
+function check_dashboard_pending_messages_in_course($courseid) {
     $data = "";
 
     $unreadposts = 0;

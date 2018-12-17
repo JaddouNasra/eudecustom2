@@ -35,7 +35,7 @@ Feature: Test the 'gradesearch' feature works.
   # to the student gradebook
   @javascript
   Scenario: Enter with a user with role teacher in several categories and courses of each categories
-    Given I skip because "The scenario randomly fails"
+    #Given I skip because "The scenario randomly fails"
     Given I log in as "user1"
     When I go to search grades
     Then I should see "Select the options to find a student."

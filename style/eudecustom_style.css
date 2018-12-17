@@ -778,6 +778,9 @@ div[name="normalcourse"], div[name="activitysubmission"], div[name="testsubmissi
     cursor: default;
     box-shadow: 0 0px 28px rgba(0,0,0,0.15);
 }
+.dashboardcoursebox.pending{
+    opacity:.3 !important;
+}
 .dashboardcoursebox.pending:hover{
     opacity:.6 !important;
 }
