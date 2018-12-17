@@ -1,0 +1,932 @@
+/* VENTANA FLOTANTE */
+
+#page-local-eudecustom-eudeprofile #letpv_ventana-flotante {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content/Box */
+#page-local-eudecustom-eudeprofile #contenedor {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* The Close Button */
+#page-local-eudecustom-eudeprofile #letpv_ventana-flotante .letpv_cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#page-local-eudecustom-eudeprofile #letpv_ventana-flotante .letpv_cerrar:hover,
+#page-local-eudecustom-eudeprofile #letpv_ventana-flotante .letpv_cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#page-local-eudecustom-eudeprofile #contenedor #contenido h3 {
+    font-size: 2em;
+}
+
+/* TPV CONFIG FORM*/
+#page-tpv-config input {
+    width: 200%;
+}
+
+/*Menu lateral Selected*/
+.menulateral .selected {
+    transition: left 2s;
+    left: -40px !important;
+}
+
+
+/*CSS Eude Profile*/
+
+#page-local-eudecustom-eudeprofile button.letpv_abrir{
+    margin: 1px;
+    text-transform: uppercase;
+    color: #565656;
+}
+
+#page-local-eudecustom-eudeprofile button.abrirFechas{
+    margin: 1px;
+    text-transform: uppercase;
+}
+
+#page-local-eudecustom-eudeprofile button.letpv_abrir:hover, #page-local-eudecustom-eudeprofile button.abrirFechas:hover{
+    background-color: #6f1a3d;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudeprofile td.cell.c1 {
+    padding: 0;
+    height: 45px;
+}
+
+#page-local-eudecustom-eudeprofile li.icon-box:hover {
+    background: radial-gradient(closest-side at 65% 50%, #6f193d 50%, #fff )
+}
+
+#page-local-eudecustom-eudeprofile span.eudeprofilespan {
+    padding-left: 10px;
+    vertical-align: -8px;
+}
+
+#page-local-eudecustom-eudeprofile i.abrirFechas {
+    padding: 10px;
+    font-size: 0;
+    padding-top: 0;
+}
+#page-local-eudecustom-eudeprofile i.abrirFechas:before {
+    color: #565656;
+    font-size: 24px;
+}
+
+#page-local-eudecustom-eudeprofile i.abrirFechas:hover {
+    color: rgba(256,256,256,0);
+}
+
+#page-local-eudecustom-eudeprofile i.abrirFechas:hover:before {
+    color: #6f193d;
+}
+#page-local-eudecustom-eudeprofile td.cell.c0{
+    white-space: nowrap;
+    max-width: 15em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#page-local-eudecustom-eudeprofile i#info {
+    margin-right: -25px;
+    margin-left: 10px;
+}
+
+#page-local-eudecustom-eudeprofile i#info:hover {
+    cursor: pointer;
+}
+
+/* Extra Eudeprofile CSS */
+#page-local-eudecustom-eudeprofile .editor_atto .menulateral {
+    display: none;
+}
+
+#page-local-eudecustom-eudeprofile #page{
+    font-size:18px;
+}
+
+#page-local-eudecustom-eudeprofile i.abrirFechas {
+    cursor: pointer;
+}
+
+#page-local-eudecustom-eudeprofile .total {
+    font-weight: bold;
+    border-top: 2px solid #ddd;
+}
+
+/* Eude Calendar */
+
+/*------------------EUDE CALENDAR------------------*/
+#page-local-eudecustom-eudecalendar .ical-link {
+    text-align: center;
+    display: block;
+}
+
+#page-local-eudecustom-eudecalendar div.cd-eventkey {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    margin: 0 0.5em;
+}
+#page-local-eudecustom-eudecalendar tr.weekdays th {
+    padding: 1.2em;
+}
+
+#page-local-eudecustom-eudecalendar ul.eventkey {
+    list-style: none;
+}
+
+#page-local-eudecustom-eudecalendar .eventkeymodulebegin {
+    background-color: #00FF00;
+}
+
+#page-local-eudecustom-eudecalendar .eventkeyactivityend {
+    background-color: salmon;
+}
+
+#page-local-eudecustom-eudecalendar .eventkeytestdate {
+    background-color: #FF8000;
+}
+
+#page-local-eudecustom-eudecalendar .eventkeyquestionnairedate {
+    background-color: #323232;
+}
+
+#page-local-eudecustom-eudecalendar .eventkeyintensivemodulebegin {
+    background-color: #0080FF;
+}
+
+#page-local-eudecustom-eudecalendar .eventkeyvacation {
+    background-color: #FFFF00;
+}
+
+#page-local-eudecustom-eudecalendar .eventkeyeudeevent {
+    background-color: #FF0000;
+}
+
+#page-local-eudecustom-eudecalendar .day {
+    height: 14px;
+    font-size: 14px;
+}
+
+#page-local-eudecustom-eudecalendar .btn-default {
+    display: table;
+    margin: 2% auto;
+}
+
+#page-local-eudecustom-eudecalendar .calendar-controls h2 {
+    font-size: 34px;
+    margin-left: 0.5em;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#page-local-eudecustom-eudecalendar .calendartable {
+    width: 100%;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar th {
+    height: auto;
+    font-weight: 300;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar th, .block .minicalendar td {
+    padding: 2px;
+    font-size: 0.8em;
+}
+
+#page-local-eudecustom-eudecalendar .calendartable th, #page-local-eudecustom-eudecalendar .calendartable td {
+    width: 14%;
+    text-align: center;
+    border: 0;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar td {
+    height: 5em;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.weekend {
+    color: #A00;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.day > a  {
+    width: 100%;
+    height: 10px;
+    display: block;
+    margin: auto;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.today:not(.hasevent) {
+    border-radius: 50px;
+    border: 1px solid #dadada ;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent {
+    color: #565656;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.weekend {
+    color: #A00;
+    background-color: transparent;
+}
+
+#page-local-eudecustom-eudecalendar .calendar-event-panel{
+    position: fixed;
+    top: 20%;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.modulebegin:not(.disabledmodulebegin) {
+    background-color: #00FF00;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.modulebegin.disabledmodulebegin {
+    display: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.activityend:not(.disabledactivityend){
+    background-color: salmon;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.activityend.disabledactivityend{
+    display:none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.testdate:not(.disabledtestdate) {
+    background-color: #FF8000;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.testdate.disabledtestdate {
+    display: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.intensivemodulebegin:not(.disabledintensivemodulebegin) {
+    background-color: #0080FF;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.intensivemodulebegin.disabledintensivemodulebegin {
+    display: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.questionnairedate:not(.disabledquestionnairedate) {
+    background-color: #323232;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.questionnairedate.disabledquestionnairedate {
+    display: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.vacation:not(.disabledvacation) {
+    background-color: #FFFF00;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.vacation.disabledvacation {
+    display: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.eudeevent:not(.disabledeudeevent) {
+    background-color: #FF0000;
+    color: #fff;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.eudeevent.disabledeudeevent {
+    display: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.hasevent.weekend.eudecustomnoevent:not(.disabledeudecustomnoevent) {
+    background-color: transparent;
+    color: #A00;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.start {
+    border-radius: 50px 0px 0px 50px;
+    border-right: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.duration {
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.duration_finish {
+    border-radius: 0px 50px 50px 0px;
+    border-left: none;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar div.oneday {
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+#page-local-eudecustom-eudecalendar .row > div:nth-child(2) .calendar-controls{
+    text-align:right;
+}
+
+#page-local-eudecustom-eudecalendar .daydisplay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1em;
+}
+
+#page-local-eudecustom-eudecalendar .minicalendar td {
+    position: relative;
+    padding-top: 20px;
+}
+
+div[name="normalcourse"], div[name="activitysubmission"], div[name="testsubmission"], div[name="intensivecourse"], div[name="holidays"], div[name="questionnairedate"], div[name="eudeglobalevent"] {
+    min-height: 14px;
+    max-height: 30px;
+    overflow: hidden;
+}
+
+#page-local-eudecustom-eudecalendar div.yui3-widget.yui3-overlay.yui3-widget-positioned.yui3-widget-stacked.calendar-event-panel.yui3-overlay.yui3-overlay {
+    top: -100px !important;
+    z-index: 2000 !important;
+    position: absolute;
+}
+
+#page-local-eudecustom-eudecalendar #modalwrapper {
+    width: 100%;
+    padding: 150px;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0px;
+    margin: 0 auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+#page-local-eudecustom-eudecalendar .modalcontent{
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    border: 3px solid #888;
+    border-radius:20px;
+    width: 100%;
+}
+
+#page-local-eudecustom-eudecalendar .modalcontent > div.row {
+    margin: 10px;
+}
+#page-local-eudecustom-eudecalendar .inputdate {
+    max-width: 130px;
+    margin-left: 10px;
+}
+
+#ui-datepicker-div {
+    position: fixed !important;
+}
+
+/*------------------EUDE INTENSIVE MODULE DATES------------------*/
+#page-local-eudecustom-eudeintensivemoduledates .inputdate {
+    cursor: pointer;
+    text-align: center;
+}
+
+#page-local-eudecustom-eudeintensivemoduledates .calldatecell {
+    text-align: center;
+}
+
+#page-local-eudecustom-eudeintensivemoduledates #contenido-fecha-matriculas {
+    margin-top: 10px;
+}
+
+#page-local-eudecustom-eudeintensivemoduledates table th {
+    width: auto !important;
+}
+
+#page-local-eudecustom-eudeintensivemoduledates #ui-datepicker-div {
+    position: absolute !important;
+}
+
+/*------------------EUDE EVENT LIST------------------*/
+#page-local-eudecustom-eudeeventlist div.cd-eventkey {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    margin: 0 0.5em;
+}
+
+#page-local-eudecustom-eudeeventlist .eventkeymodulebegin, #page-local-eudecustom-eudeeventlist div.normalmodule {
+    background-color: #00FF00 !important;
+}
+
+#page-local-eudecustom-eudeeventlist .eventkeyactivityend, #page-local-eudecustom-eudeeventlist div.assignmentevent {
+    background-color: salmon !important;
+}
+
+#page-local-eudecustom-eudeeventlist .eventkeytestdate, #page-local-eudecustom-eudeeventlist div.quizevent {
+    background-color: #FF8000 !important;
+}
+
+#page-local-eudecustom-eudeeventlist .eventkeyquestionnairedate, #page-local-eudecustom-eudeeventlist div.questionnaireevent {
+    background-color: #323232 !important;
+}
+
+#page-local-eudecustom-eudeeventlist .eventkeyintensivemodulebegin, #page-local-eudecustom-eudeeventlist div.intensivemodule {
+    background-color: #0080FF !important;
+}
+
+#page-local-eudecustom-eudeeventlist .eventkeyeudeevent, #page-local-eudecustom-eudeeventlist div.globalevent {
+    background-color: #FF0000 !important;
+}
+
+#page-local-eudecustom-eudeeventlist .inputdate {
+    max-width: 130px;
+    margin-left: 10px;
+}
+
+#page-local-eudecustom-eudeeventlist .datepickerwrapper {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#page-local-eudecustom-eudeeventlist .printbuttonwrapper {
+    margin-top: 10px;
+}
+
+#page-local-eudecustom-eudeeventlist th.datecolumn {
+    min-width: 100px;
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
+    #page-local-eudecustom-eudeeventlist tbody th {
+        font-weight: normal;
+    }
+}
+
+/* Teacher control panel view */
+#page-local-eudecustom-eudeteachercontrolpanel .row-panel-list {
+    overflow-y: auto;
+    height: 250px;
+}
+#page-local-eudecustom-eudeteachercontrolpanel .eude_panel_bg .panelitem{
+    list-style: none;
+    border-bottom: 1px #6F1A3D solid;
+    background-color: none;
+    margin-bottom: 10px;
+    height: 43px;
+    padding-top: 2px;
+    padding-left: 3px;
+}
+
+#page-local-eudecustom-eudeteachercontrolpanel .linkselect {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 0;
+    border: 1px #565656 solid;
+    box-shadow: none;
+    background-color: #fff;
+    background-image: none;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+}
+
+#page-local-eudecustom-eudeteachercontrolpanel .panelitem a {
+    color: #565656;
+}
+
+#page-local-eudecustom-eudeteachercontrolpanel .panelitem a:hover {
+    color: #6F1A3D;
+}
+
+#page-local-eudecustom-eudeteachercontrolpanel .eude_panel_bg .itemname {
+    float: left;
+    padding-top: 5px;
+}
+
+#page-local-eudecustom-eudeteachercontrolpanel .eude_panel_bg .itemselect {
+    float: right;
+    padding-right: 2px;
+}
+
+#page-local-eudecustom-eudeteachercontrolpanel .eude_panel_bg .itemselect-small {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#page-local-eudecustom-eudeteachercontrolpanel .linkselect option {
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+
+#page-local-eudecustom-eudeteachercontrolpanel .eude_panel_bg h4 {
+    text-transform: uppercase;
+}
+
+/* Banner backgorund */
+#page-my-index #page-mast, #page-local-eudecustom-eudeprofile #page-mast,
+#page-local-eudecustom-eudeteachercontrolpanel #page-mast,
+#page-local-eudecustom-eudecalendar #page-mast, #page-local-eudecustom-eudemessages #page-mast,
+#page-user-profile #page-mast, #page-grade-report-overview-index #page-mast {
+    background-image: url('../pix/headerbg.jpg');
+    background-position: center;
+    padding: 10px;
+}
+
+#page-my-index #page-mast h1, #page-local-eudecustom-eudeprofile #page-mast h1,
+#page-local-eudecustom-eudeteachercontrolpanel #page-mast h1,
+#page-local-eudecustom-eudecalendar #page-mast h1, #page-local-eudecustom-eudemessages #page-mast h1,
+#page-user-profile #page-mast h1, #page-grade-report-overview-index #page-mast h1 {
+    color: #fff;
+    text-shadow: 3px 2px 2px #000;
+    font-weight: 400;
+}
+
+/* Calendar event popup */
+.eudecalendarpopup {
+    position: absolute;
+    width: 200px;
+    height:130px;
+    margin: 0 auto;
+    top: -120px;
+    text-align:center;
+}
+
+/**************************/
+/**** STUDENT VIEW TAB ****/
+/**************************/
+* {
+    box-sizing: border-box;
+}
+.card-body{
+    background-color: #F6F6F6;
+}
+.eudedashboardcategoryname {
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+#eudedashboardmyTab {
+    background-color: #815973;
+    padding: 20px 10px 0px 10px;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 0px;
+}
+#eudedashboardmyTab .nav-item {
+    margin:0px 5px;
+    border-radius: 6px 6px 0 0;
+    padding: 0;
+    background: #fff;
+}
+#eudedashboardmyTab .nav-link {
+    background-color: #BCA9B6;
+    color: white;
+    padding: 15px 20px;
+    font-size:14px;
+    border-radius: 6px 6px 0px 0px;
+    border: none;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    display: block;
+    height:  100%;
+}
+#eudedashboardmyTab .eudedashboardcategoryname {
+    display:block;
+    font-weight:bolder;
+    text-transform:uppercase;
+    font-size:20px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#eudedashboardmyTab .eudedashboardprogressinfo {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+.eudedashboardprogresswrapper {
+    border-radius: 10px;
+    height: 10px;
+    margin-bottom: 5px;
+    background-color:#DFDFDF;
+}
+.eudedashboardprogressbar {
+    background-color:#691A32;
+}
+/*ACTIVE TAB*/
+#eudedashboardmyTab .nav-link.active {
+    background-color: white;
+    color: #691A32;
+    padding-top: 25px;
+    margin-top: -10px;
+}
+.nav-link.active .eudedashboardprogressinfo, .nav-link.active .eudedashboardcategoryconvocatory {
+    color: #9e9e9e;
+}
+.nav-link.active .eudedashboardprogressbar {
+    background-color:#FDBF2C;
+}
+/*TAB-CONTENT*/
+#eudedashboardmyTabContent{
+    border: 1px solid rgb(223, 223, 223, .7);
+    background-color: #fff;
+    border-top: 0px;
+    border-radius: 0 0 4px 4px;
+}
+#eudedashboardmyTabContent .tab-pane{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.dashboardcoursecardswrapper{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 25px;
+}
+/*FILTERBUTTONS*/
+.filterbuttonswrapper {
+    border-bottom: 1px solid rgb(223, 223, 223, .7);
+    padding: 0 20px;
+    text-align: left;
+    overflow-x: auto;
+    max-height: 120px;
+    width: auto;
+    display: flex;
+}
+.dashboardbtn {
+    padding: 10px 30px 10px 50px;
+    border-radius: 30px;
+    border: 1px solid grey;
+    background-color: white;
+    font-size: 16px;
+    margin: 20px 10px 20px 0;
+    text-transform: uppercase;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 500;
+    max-width: 195px;
+    white-space: normal !important;
+    height: 60px;
+    text-align: left;
+    opacity: .55;
+}
+.dashboardbtn.eudeactive{
+    border-color: #691A32;
+    background-color: rgba(105, 26, 50, 0.07);
+}
+.dashboardbtn.eudeactive,
+.dashboardbtn.eudeactive span, .dashboardbtn.eudeactive i{
+    color: #691A32;
+    opacity: 1;
+}
+.dashboardbtn .edb-number {
+    position: absolute;
+    left: 13px;
+    top: 10px;
+    font-size: 25px;
+    width: 30px;
+    text-align: center;
+}
+.dashboardbtn .edb-text{
+    text-align: left;
+    line-height: 18px;
+    display: block;
+}
+.dashboardbtn .icon {
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    font-size: 18px;
+}
+/*COURSECARDS*/
+.dashboardcoursebox {
+    border-radius:4px;
+    border: 0px;
+    padding:10px;
+    max-width: 100%;
+    margin: 10px 0;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+@media (max-width: 768px){
+    .dashboardcoursecardswrapper{
+        margin-left: -15px;
+        margin-right: -15px;
+        margin:auto;
+        padding: 15px;
+    }
+}
+@media (min-width: 768px){
+    .dashboardcoursebox {
+        flex: 0 0 48%;
+        max-width: 48%;
+        margin: 10px 1%;
+    }
+}
+@media (min-width: 1024px){
+    .dashboardcoursebox {
+        flex: 0 0 31%;
+        max-width: 31%;
+        margin: 10px 1%;
+    }
+}
+@media (min-width: 1400px){
+    .dashboardcoursebox {
+        flex: 0 0 23%;
+        max-width: 23%;
+        margin: 10px 1%;
+    }
+}
+.dashboardcoursebox:hover{
+    cursor: default;
+    box-shadow: 0 0px 28px rgba(0,0,0,0.15);
+}
+.dashboardcoursebox.pending:hover{
+    opacity:.6 !important;
+}
+.dashboardcourseimagewrapper {
+    margin:-10px;
+    height: 170px;
+}
+img.dashboardcourseimage {
+    width: 100%;
+    border-radius:4px 4px 0px 0px;
+    *content: url(https://source.unsplash.com/random/370x170);
+    object-fit: cover;
+    height: 170px;
+}
+.dashboardcourseinfowrapper {
+    margin: 10px -10px -10px;
+    padding: 20px;
+    padding-bottom: 0;
+    min-height: 220px;
+}
+.dashboardcoursename {
+    font-family: 'Bai Jamjuree', sans-serif;
+    display: block;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.dashboardcoursecategoryname {
+    font-family: 'Bai Jamjuree', sans-serif;
+    opacity: .7;
+    display: block;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.eudedashboardprogressinfo {
+    opacity: .7;
+    display:block;
+    margin-top:10px;
+    margin-bottom:5px;
+    font-size:14px;
+}
+.dashboardcoursecompletionbar .eudedashboardprogressbar {
+    background-color:#FDBF2C;
+}
+.dashboardcoursefooter {
+    margin-top: 20px;
+    border-top: 1px solid rgb(223, 223, 223, .7);
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 16px 20px 0 20px;
+    height: 65px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.dashboardcoursefooter .dashboardcoursefinalgrade{
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 500;
+    padding: 4px 20px;
+    border: 1px solid #eee;
+    background-color: #fbfbfb;
+    border-radius: 20px;
+    min-width: 50px;
+    text-align: center;
+    float: left;
+}
+.dashboardcoursefooter .dashboardcoursefinalgrade.passed,
+.dashboardcoursefooter .dashboardcoursefinalgradeconvalided{
+    color: #40a670;
+    border: 1px solid #8dcaaa;
+}
+.dashboardcoursefooter .dashboardcoursefinalgrade.failed{
+    color: #C84B58;
+    border: 1px solid #e5848e;
+}
+.dashboardcoursefooter .dashboardcourseimage {
+    float:right;
+    width:auto;
+    color:#691A32;
+}
+.dashboardcoursefooter .dashboardcourseimage .edbicon {
+    font-size:24px;
+}
+/* TABS RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .nav-tabs-responsive > li {
+    display: none;
+    width: 23%;
+  }
+  .nav-tabs-responsive > li > a {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+  }
+  .nav-tabs-responsive > li.active {
+    width: 70%;
+    margin-right: 0px !important;
+  }
+  .nav-tabs-responsive > li.active:first-child {
+    margin-left: 15% !important;
+  }
+  .nav-tabs-responsive > li.active, .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+    display: block;
+   }
+  .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+    display: block;
+    background: transparent !important;
+    width: 14%;
+    margin: 0px !important;
+  }
+   .nav-tabs-responsive > li.prev a, .nav-tabs-responsive > li.next a{
+      background: transparent !important;
+   }
+  .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  .nav-tabs-responsive > li.next > a, .nav-tabs-responsive > li.prev > a {
+    -webkit-transition: none;
+    transition: none;
+    padding: 0px !important;
+  }
+  .nav-tabs-responsive > li.next > a .eudedashboardcategoryname, .nav-tabs-responsive > li.prev > a .eudedashboardcategoryname,
+  .nav-tabs-responsive > li.next > a .eudedashboardprogressinfo, .nav-tabs-responsive > li.prev > a .eudedashboardprogressinfo,
+  .nav-tabs-responsive > li.next > a .eudedashboardprogresswrapper, .nav-tabs-responsive > li.prev > a .eudedashboardprogresswrapper,
+  .nav-tabs-responsive > li.next > a .eudedashboardcategoryconvocatory, .nav-tabs-responsive > li.prev > a .eudedashboardcategoryconvocatory{
+    display: none !important;
+  }
+  .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.prev > a:after, .nav-tabs-responsive > li.prev > a:after {
+    font-size: 24px;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .nav-tabs-responsive > li.prev > a:after {
+    content: "\f060";
+  }
+  .nav-tabs-responsive > li.next > a:after {
+    content: "\f061";
+  }
+}
