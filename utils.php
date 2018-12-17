@@ -1639,7 +1639,7 @@ function get_dashboard_student_data($userid) {
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursename = $dashboardentry->coursename;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->timestart = $dashboardentry->timestart;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseid = $dashboardentry->courseid;
-        $fclasses = get_dashboard_course_filterclasses($userid, $dashboardentry->courseid, $dashboardentry->timestart);
+        $fclasses = get_dashboard_course_filterclasses($userid, $dashboardentry->courseid, $dashboardentry->timestart, $dashboardentry->timeend);
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->filterclasses = $fclasses;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseimagepath = get_dashboard_course_imagepath($dashboardentry->courseid);
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->completionstatus = get_dashboard_course_completion($userid, $dashboardentry->courseid);
@@ -1852,11 +1852,11 @@ function get_dashboard_course_completion($userid, $courseid) {
  * @param int $timeend
  * @return string $data classes for renderer
  */
-function check_dashboard_course_incourse($timestart) {
+function check_dashboard_course_incourse($timestart, $timeend) {
     $data = "";
     $timenow = time();
 
-    if ($timestart <= $timenow) {
+    if ($timestart <= $timenow && $timenow <= $timeend) {
         $data = " incourse";
     }
 
@@ -1970,12 +1970,13 @@ function get_dashboard_course_finalgrade($userid, $courseid) {
  * @param int $userid
  * @param int $courseid
  * @param int $timestart
+ * @param int $timeend
  * @return string $data classes for renderer
  */
-function get_dashboard_course_filterclasses($userid, $courseid, $timestart) {
+function get_dashboard_course_filterclasses($userid, $courseid, $timestart, $timeend) {
     $data = "dashboardcourse";
 
-    $data .= check_dashboard_course_incourse($timestart);
+    $data .= check_dashboard_course_incourse($timestart, $timeend);
     $data .= check_dashboard_course_pending($timestart);
     $data .= check_dashboard_course_failed($userid, $courseid);
     $data .= check_dashboard_course_passed($userid, $courseid);

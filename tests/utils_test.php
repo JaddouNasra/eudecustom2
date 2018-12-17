@@ -3112,13 +3112,14 @@ class local_eudecustom_testcase extends advanced_testcase {
 
         $timestart1 = time() + 100000;
         $timestart2 = time() - 100000;
+        $timeend = time() + 600000;
 
         // Testing the function with $timestart1 (expected result: "").
-        $result1 = check_dashboard_course_incourse($timestart1);
+        $result1 = check_dashboard_course_incourse($timestart1, $timeend);
         $this->assertEquals("", $result1);
 
         // Testing the function with $timestart1 (expected result: incourse).
-        $result2 = check_dashboard_course_incourse($timestart2);
+        $result2 = check_dashboard_course_incourse($timestart2, $timeend);
         $this->assertEquals(" incourse", $result2);
     }
 

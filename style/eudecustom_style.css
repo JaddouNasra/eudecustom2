@@ -701,7 +701,7 @@ div[name="normalcourse"], div[name="activitysubmission"], div[name="testsubmissi
     text-transform: uppercase;
     font-family: 'Bai Jamjuree', sans-serif;
     font-weight: 500;
-    max-width: 195px;
+    max-width: 210px;
     white-space: normal !important;
     height: 60px;
     text-align: left;
@@ -932,4 +932,13 @@ img.dashboardcourseimage {
   .nav-tabs-responsive > li.next > a:after {
     content: "\f061";
   }
+}
+.dashboardbtn {
+    position:relative;
+}
+.dashboardbtnteacherpendingactivities {
+    max-width:260px;
+}
+.dashboardbtnteacherpendingmessages {
+    max-width:260px;
 }

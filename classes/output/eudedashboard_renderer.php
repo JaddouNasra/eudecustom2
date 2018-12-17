@@ -169,7 +169,7 @@ class eudedashboard_renderer extends \plugin_renderer_base {
                                                    'aria-controls' => "nav-category$categoryid",
                                                    'aria-selected' => $ariaselected));
         $html .= "<span class='eudedashboardcategoryname'>" . $categoryinfo->name . "</span>";
-        if ($categoryinfo->averagecoursecompletion >= 0  && $categoryinfo->nextconvocatory == "") {
+        if ($categoryinfo->averagecoursecompletion > 0  && $categoryinfo->nextconvocatory == "") {
             $html .= "<span class='eudedashboardprogressinfo'>" . $categoryinfo->averagecoursecompletion
                      . get_string('dashboardcategorycourseprogresstext', 'local_eudecustom') . "</span>";
             $html .= "<div class='progress eudedashboardprogresswrapper'>"
