@@ -29,7 +29,7 @@ if ($hassiteconfig) {
         $settings->add(new admin_setting_configtext('local_eudecustom_intensivemodulechecknumber',
                 new lang_string('intensivemodulechecknumber', 'local_eudecustom'),
                 new lang_string('intensivemodulechecknumber_desc', 'local_eudecustom'), '0', PARAM_FLOAT, 10));
-				
+
         $settings->add(new admin_setting_configtext('local_eudecustom_totalenrolsinincurse',
                 new lang_string('totalenrolsinincurse', 'local_eudecustom'),
                 new lang_string('totalenrolsinincurse_desc', 'local_eudecustom'), '0', PARAM_FLOAT, 10));
