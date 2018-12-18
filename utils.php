@@ -2013,7 +2013,7 @@ function get_average_course_completion($coursesinfo) {
     if ($coursesinfo) {
         $avgcompletion = 0;
         foreach ($coursesinfo as $singleinfo) {
-            if (is_number($singleinfo->completionstatus)) {
+            if (is_numeric($singleinfo->completionstatus)) {
                 $avgcompletion += $singleinfo->completionstatus;
             }
         }

@@ -99,10 +99,12 @@ class eudedashboard_renderer extends \plugin_renderer_base {
         $response = '';
         $response .= $this->header();
 
-        $html = html_writer::start_div('row');
+        $html = html_writer::start_tag('div', array('class' => "row col-md-10 offset-md-1",
+                                                        'id' => "eudedashboardmyTabContent"));
+        $html .= html_writer::start_div('row');
         $html .= html_writer::start_div('filterbuttonswrapper col-md-12');
 
-        $html .= html_writer::start_tag('button', array('class' => "btn btn-default dashboardbtn dashboardbtnteachertotal",
+        $html .= html_writer::start_tag('button', array('class' => "btn btn-default dashboardbtn dashboardbtnteachertotal eudeactive",
                                                         'id' => "dashboardbtnteachertotal"));
         $html .= "<span class='edb-number edb-total'>" . count($data->courses) . "</span>";
         $html .= "<span class='edb-text'>" . get_string('dashboardfiltertotal', 'local_eudecustom') . "</span>";
@@ -144,6 +146,8 @@ class eudedashboard_renderer extends \plugin_renderer_base {
 
         $html .= html_writer::end_div();
 
+        $html .= html_writer::end_tag('div');
+
         $response .= $html;
         $response .= $this->footer();
         return $response;
@@ -170,7 +174,7 @@ class eudedashboard_renderer extends \plugin_renderer_base {
                                                    'aria-selected' => $ariaselected));
         $html .= "<span class='eudedashboardcategoryname'>" . $categoryinfo->name . "</span>";
         if ($categoryinfo->averagecoursecompletion > 0  && $categoryinfo->nextconvocatory == "") {
-            $html .= "<span class='eudedashboardprogressinfo'>" . $categoryinfo->averagecoursecompletion
+            $html .= "<span class='eudedashboardprogressinfo'>" . intval($categoryinfo->averagecoursecompletion)
                      . get_string('dashboardcategorycourseprogresstext', 'local_eudecustom') . "</span>";
             $html .= "<div class='progress eudedashboardprogresswrapper'>"
                      . "<div class='progress-bar eudedashboardprogressbar' role='progressbar' aria-valuenow='"
@@ -295,7 +299,7 @@ class eudedashboard_renderer extends \plugin_renderer_base {
 
         if (is_numeric($coursedata->completionstatus) && $coursedata->completionstatus >= 0) {
             $html .= "<span class='eudedashboardprogressinfo'>"
-                     . $coursedata->completionstatus . get_string('dashboardcourseprogresstext', 'local_eudecustom') . "</span>";
+                     . intval($coursedata->completionstatus) . get_string('dashboardcourseprogresstext', 'local_eudecustom') . "</span>";
             $html .= "<div class='progress eudedashboardprogresswrapper'>"
                      . "<div class='progress-bar eudedashboardprogressbar' role='progressbar' aria-valuenow='"
                      . $coursedata->completionstatus . "' aria-valuemin='0' aria-valuemax='100' style='width:"

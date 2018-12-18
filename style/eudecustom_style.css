@@ -1,3 +1,5 @@
+@import url('//fonts.googleapis.com/css?family=Bai+Jamjuree:300,400,500,600,700');
+
 /* VENTANA FLOTANTE */
 
 #page-local-eudecustom-eudeprofile #letpv_ventana-flotante {
@@ -701,7 +703,7 @@ div[name="normalcourse"], div[name="activitysubmission"], div[name="testsubmissi
     text-transform: uppercase;
     font-family: 'Bai Jamjuree', sans-serif;
     font-weight: 500;
-    max-width: 210px;
+    max-width: 200px;
     white-space: normal !important;
     height: 60px;
     text-align: left;
@@ -799,14 +801,20 @@ img.dashboardcourseimage {
     margin: 10px -10px -10px;
     padding: 20px;
     padding-bottom: 0;
-    min-height: 220px;
+    min-height: 240px;
 }
 .dashboardcoursename {
     font-family: 'Bai Jamjuree', sans-serif;
-    display: block;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: bold;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 63px;
 }
 .dashboardcoursecategoryname {
     font-family: 'Bai Jamjuree', sans-serif;
@@ -814,6 +822,10 @@ img.dashboardcourseimage {
     display: block;
     font-size: 16px;
     text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 25px;
 }
 .eudedashboardprogressinfo {
     opacity: .7;
@@ -847,12 +859,12 @@ img.dashboardcourseimage {
     text-align: center;
     float: left;
 }
-.dashboardcoursefooter .dashboardcoursefinalgrade.passed,
-.dashboardcoursefooter .dashboardcoursefinalgradeconvalided{
+.dashboardcourse.passed .dashboardcoursefooter .dashboardcoursefinalgrade,
+.dashboardcourse.convalidated .dashboardcoursefooter .dashboardcoursefinalgrade {
     color: #40a670;
     border: 1px solid #8dcaaa;
 }
-.dashboardcoursefooter .dashboardcoursefinalgrade.failed{
+.dashboardcourse.failed .dashboardcoursefooter .dashboardcoursefinalgrade{
     color: #C84B58;
     border: 1px solid #e5848e;
 }

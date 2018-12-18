@@ -26,18 +26,13 @@ global $CFG;
 if ($hassiteconfig) {
     $settings = new admin_settingpage('local_eudecustom', get_string('pluginname', 'local_eudecustom'));
     if ($ADMIN->fulltree) {
-        $settings->add(new admin_setting_configselect('local_eudecustom_intensivemodulechecknumber',
+        $settings->add(new admin_setting_configtext('local_eudecustom_intensivemodulechecknumber',
                 new lang_string('intensivemodulechecknumber', 'local_eudecustom'),
-                new lang_string('intensivemodulechecknumber_desc', 'local_eudecustom'), '0',
-                array('0' => '0', '1' => '1', '2' => '2', '3' => '3',
-            '4' => '4', '5' => '5', '6' => '6', '7' => '7',
-            '8' => '8', '9' => '9')));
-        $settings->add(new admin_setting_configselect('local_eudecustom_totalenrolsinincurse',
+                new lang_string('intensivemodulechecknumber_desc', 'local_eudecustom'), '0', PARAM_FLOAT, 10));
+				
+        $settings->add(new admin_setting_configtext('local_eudecustom_totalenrolsinincurse',
                 new lang_string('totalenrolsinincurse', 'local_eudecustom'),
-                new lang_string('totalenrolsinincurse_desc', 'local_eudecustom'), '0',
-                array('0' => '0', '1' => '1', '2' => '2', '3' => '3',
-            '4' => '4', '5' => '5', '6' => '6', '7' => '7',
-            '8' => '8', '9' => '9')));
+                new lang_string('totalenrolsinincurse_desc', 'local_eudecustom'), '0', PARAM_FLOAT, 10));
 
         $settings->add(new admin_setting_configtext('local_eudecustom_intensivemoduleprice',
                 new lang_string('intensivemoduleprice', 'local_eudecustom'),
