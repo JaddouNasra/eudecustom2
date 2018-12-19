@@ -3172,6 +3172,7 @@ class local_eudecustom_testcase extends advanced_testcase {
         $grade = $this->getDataGenerator()->create_grade_item(array('itemtype' => 'course', 'courseid' => $course1->id));
         $this->assertNotEmpty($grade);
         $grade->needsupdate = 0;
+        $grade->gradepass = 50;
         $DB->update_record('grade_items', $grade);
         $grades = new stdClass();
         $grades->itemid = $grade->id;
@@ -3185,6 +3186,7 @@ class local_eudecustom_testcase extends advanced_testcase {
         // Grade course 2.
         $grade2 = $this->getDataGenerator()->create_grade_item(array('itemtype' => 'course', 'courseid' => $course2->id));
         $grade2->needsupdate = 0;
+        $grade2->gradepass = 50;
         $DB->update_record('grade_items', $grade2);
         $this->assertNotEmpty($grade2);
         $grades2 = new stdClass();
@@ -3236,6 +3238,7 @@ class local_eudecustom_testcase extends advanced_testcase {
         $grade = $this->getDataGenerator()->create_grade_item(array('itemtype' => 'course', 'courseid' => $course1->id));
         $this->assertNotEmpty($grade);
         $grade->needsupdate = 0;
+        $grade->gradepass = 50;
         $DB->update_record('grade_items', $grade);
         $grades = new stdClass();
         $grades->itemid = $grade->id;
@@ -3248,6 +3251,7 @@ class local_eudecustom_testcase extends advanced_testcase {
         // Grade course 2.
         $grade2 = $this->getDataGenerator()->create_grade_item(array('itemtype' => 'course', 'courseid' => $course2->id));
         $grade2->needsupdate = 0;
+        $grade2->gradepass = 50;
         $DB->update_record('grade_items', $grade2);
         $this->assertNotEmpty($grade2);
         $grades2 = new stdClass();
@@ -3262,7 +3266,7 @@ class local_eudecustom_testcase extends advanced_testcase {
         $result1 = check_dashboard_course_passed($student1->id, $course1->id);
         $this->assertEquals(" passed", $result1);
 
-        // Testing the user1 in course2 (expected result: "convalidated").
+        // Testing the user1 in course2 (expected result: "passed").
         $result2 = check_dashboard_course_passed($student1->id, $course2->id);
         $this->assertNotEquals(" passed", $result2);
     }
@@ -3298,6 +3302,7 @@ class local_eudecustom_testcase extends advanced_testcase {
         $grade = $this->getDataGenerator()->create_grade_item(array('itemtype' => 'course', 'courseid' => $course1->id));
         $this->assertNotEmpty($grade);
         $grade->needsupdate = 0;
+        $grade->gradepass = 50;
         $DB->update_record('grade_items', $grade);
         $grades = new stdClass();
         $grades->itemid = $grade->id;
@@ -3310,6 +3315,7 @@ class local_eudecustom_testcase extends advanced_testcase {
         // Grade course 2.
         $grade2 = $this->getDataGenerator()->create_grade_item(array('itemtype' => 'course', 'courseid' => $course2->id));
         $grade2->needsupdate = 0;
+        $grade2->gradepass = 50;
         $DB->update_record('grade_items', $grade2);
         $this->assertNotEmpty($grade2);
         $grades2 = new stdClass();

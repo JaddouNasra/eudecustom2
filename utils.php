@@ -1860,6 +1860,10 @@ function check_dashboard_course_incourse($timestart, $timeend) {
         $data = " incourse";
     }
 
+    if ($timestart <= $timenow && $timeend == 0) {
+        $data = " incourse";
+    }
+
     return $data;
 }
 
@@ -1896,7 +1900,7 @@ function check_dashboard_course_failed($userid, $courseid) {
     $gradeinfo = grade_get_course_grade($userid, $courseid);
 
     if ($gradeinfo && is_numeric($gradeinfo->grade)) {
-        if (($gradeinfo->grade / $gradeinfo->item->grademax) * 10 < 5) {
+        if ($gradeinfo->grade < $gradeinfo->item->gradepass) {
             $data = " failed";
         }
     }
@@ -1917,7 +1921,7 @@ function check_dashboard_course_passed($userid, $courseid) {
     $gradeinfo = grade_get_course_grade($userid, $courseid);
 
     if ($gradeinfo && is_numeric($gradeinfo->grade)) {
-        if (($gradeinfo->grade / $gradeinfo->item->grademax) * 10 >= 5) {
+        if ($gradeinfo->grade >= $gradeinfo->item->gradepass) {
             $data = " passed";
         }
     }
