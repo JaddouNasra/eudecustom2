@@ -1623,7 +1623,7 @@ function get_dashboard_student_data($userid) {
     $processeddata = array();
 
     $sql = "SELECT C.id as courseid, CC.id as catid, CC.name as catname, 
-	               C.fullname as coursename, UE.timestart as timestart, UE.timeend as timeend
+                   C.fullname as coursename, UE.timestart as timestart, UE.timeend as timeend
                  FROM {role_assignments} RA
                  JOIN {role} R ON R.id = RA.roleid
                  JOIN {context} CTX ON CTX.id = RA.contextid
@@ -1654,11 +1654,11 @@ function get_dashboard_student_data($userid) {
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->timestart = $dashboardentry->timestart;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseid = $dashboardentry->courseid;
         $fclasses = get_dashboard_course_filterclasses($userid, $dashboardentry->courseid,
-		                                               $dashboardentry->timestart, $dashboardentry->timeend);
+                                                       $dashboardentry->timestart, $dashboardentry->timeend);
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->filterclasses = $fclasses;
-		$imagepath = get_dashboard_course_imagepath($dashboardentry->courseid);
-		$ccompletion = get_dashboard_course_completion($userid, $dashboardentry->courseid);
-		$cfinalgrade = get_dashboard_course_finalgrade($userid, $dashboardentry->courseid);
+        $imagepath = get_dashboard_course_imagepath($dashboardentry->courseid);
+        $ccompletion = get_dashboard_course_completion($userid, $dashboardentry->courseid);
+        $cfinalgrade = get_dashboard_course_finalgrade($userid, $dashboardentry->courseid);
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseimagepath = $imagepath;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->completionstatus = $ccompletion;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursefinalgrade = $cfinalgrade;
