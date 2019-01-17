@@ -1622,7 +1622,7 @@ function get_dashboard_student_data($userid) {
     global $DB;
     $processeddata = array();
 
-    $sql = "SELECT C.id as courseid, CC.id as catid, CC.name as catname, 
+    $sql = "SELECT C.id as courseid, CC.id as catid, CC.name as catname,
                    C.fullname as coursename, UE.timestart as timestart, UE.timeend as timeend
                  FROM {role_assignments} RA
                  JOIN {role} R ON R.id = RA.roleid
