@@ -105,8 +105,9 @@ class eudedashboard_renderer extends \plugin_renderer_base {
         $html .= html_writer::start_div('row');
         $html .= html_writer::start_div('filterbuttonswrapper col-md-12');
 
-        $html .= html_writer::start_tag('button', array('class' => "btn btn-default dashboardbtn dashboardbtnteachertotal eudeactive",
-                                                        'id' => "dashboardbtnteachertotal"));
+        $html .= html_writer::start_tag('button',
+		                                array('class' => "btn btn-default dashboardbtn dashboardbtnteachertotal eudeactive",
+                                              'id' => "dashboardbtnteachertotal"));
         $html .= "<span class='edb-number edb-total'>" . count($data->courses) . "</span>";
         $html .= "<span class='edb-text'>" . get_string('dashboardfiltertotal', 'local_eudecustom') . "</span>";
         $html .= "<i class='icon edbicon fa fa-bullseye'></i>";
@@ -304,7 +305,8 @@ class eudedashboard_renderer extends \plugin_renderer_base {
 
         if (is_numeric($coursedata->completionstatus) && $coursedata->completionstatus >= 0) {
             $html .= "<span class='eudedashboardprogressinfo'>"
-                     . intval($coursedata->completionstatus) . get_string('dashboardcourseprogresstext', 'local_eudecustom') . "</span>";
+                     . intval($coursedata->completionstatus)
+					 . get_string('dashboardcourseprogresstext', 'local_eudecustom') . "</span>";
             $html .= "<div class='progress eudedashboardprogresswrapper'>"
                      . "<div class='progress-bar eudedashboardprogressbar' role='progressbar' aria-valuenow='"
                      . $coursedata->completionstatus . "' aria-valuemin='0' aria-valuemax='100' style='width:"

@@ -1622,7 +1622,8 @@ function get_dashboard_student_data($userid) {
     global $DB;
     $processeddata = array();
 
-    $sql = "SELECT C.id as courseid, CC.id as catid, CC.name as catname, C.fullname as coursename, UE.timestart as timestart, UE.timeend as timeend
+    $sql = "SELECT C.id as courseid, CC.id as catid, CC.name as catname, 
+	               C.fullname as coursename, UE.timestart as timestart, UE.timeend as timeend
                  FROM {role_assignments} RA
                  JOIN {role} R ON R.id = RA.roleid
                  JOIN {context} CTX ON CTX.id = RA.contextid
@@ -1652,11 +1653,15 @@ function get_dashboard_student_data($userid) {
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursename = $dashboardentry->coursename;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->timestart = $dashboardentry->timestart;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseid = $dashboardentry->courseid;
-        $fclasses = get_dashboard_course_filterclasses($userid, $dashboardentry->courseid, $dashboardentry->timestart, $dashboardentry->timeend);
+        $fclasses = get_dashboard_course_filterclasses($userid, $dashboardentry->courseid,
+		                                               $dashboardentry->timestart, $dashboardentry->timeend);
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->filterclasses = $fclasses;
-        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseimagepath = get_dashboard_course_imagepath($dashboardentry->courseid);
-        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->completionstatus = get_dashboard_course_completion($userid, $dashboardentry->courseid);
-        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursefinalgrade = get_dashboard_course_finalgrade($userid, $dashboardentry->courseid);
+		$imagepath = get_dashboard_course_imagepath($dashboardentry->courseid);
+		$ccompletion = get_dashboard_course_completion($userid, $dashboardentry->courseid);
+		$cfinalgrade = get_dashboard_course_finalgrade($userid, $dashboardentry->courseid);
+        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->courseimagepath = $imagepath;
+        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->completionstatus = $ccompletion;
+        $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursefinalgrade = $cfinalgrade;
         $processeddata[$dashboardentry->catid]->courses[$dashboardentry->courseid]->coursecatname = $dashboardentry->catname;
     }
 
@@ -1849,7 +1854,6 @@ function get_dashboard_course_completion($userid, $courseid) {
     $data = "";
 
     $course = $DB->get_record('course', array('id' => $courseid));
-    //$completionpercent = \core_completion\progress::get_course_progress_percentage($course, $userid);
     $snappercent = \theme_snap\local::course_completion_progress($course);
     $completionpercent = $snappercent->progress;
 
@@ -2122,9 +2126,8 @@ function check_dashboard_pending_activities_in_course($courseid) {
         $record = $DB->get_record_sql($result[0], $result[1], 0, 0);
         if ($record->usersnotgraded > 0) {
             $data = "pendingactivities";
-        }  
+        }
     }
-    
 
     return $data;
 }
@@ -2146,9 +2149,7 @@ function check_dashboard_pending_messages_in_course($courseid) {
         $course = context_course::instance($courseid);
 
         foreach ($forums as $forum) {
-            //$forumcm = get_coursemodule_from_id('forum', $forum->id);
             $forumcm = get_coursemodule_from_instance('forum', $forum->id, $forum->course);
-            //$unreadposts += forum_tp_count_forum_unread_posts($forumcm, $course, true);
             $unreadposts = forum_get_discussions_unread($forumcm);
 
             foreach ($unreadposts as $key => $value) {
@@ -2156,7 +2157,6 @@ function check_dashboard_pending_messages_in_course($courseid) {
             }
         }
 
-        //if ($unreadposts > 0) {
         if ($numunreadpost > 0) {
             $data = "pendingmessages";
         }

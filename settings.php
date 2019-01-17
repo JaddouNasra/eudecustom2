@@ -61,15 +61,17 @@ if ($hassiteconfig) {
         $settings->add(new admin_setting_configtext('local_eudecustom_tpv_url_tpvv',
                 new lang_string('tpvurltpvv', 'local_eudecustom'), new lang_string('tpvurltpvv_desc', 'local_eudecustom'), '',
                 PARAM_TEXT, null));
-        
+
         $settings->add(new admin_setting_heading('local_eudecustom_dashboard_settings',
                 new lang_string('dashboardsettings', 'local_eudecustom'), ''));
-        
+
         $settings->add(new admin_setting_configcheckbox('local_eudecustom_enabledashboardpendingactivities',
-                new lang_string('enabledashboardpendingactivities', 'local_eudecustom'), new lang_string('enabledashboardpendingactivities_desc', 'local_eudecustom'), 0, 1));
-        
+                new lang_string('enabledashboardpendingactivities', 'local_eudecustom'),
+				new lang_string('enabledashboardpendingactivities_desc', 'local_eudecustom'), 0, 1));
+
         $settings->add(new admin_setting_configcheckbox('local_eudecustom_enabledashboardunreadmsgs',
-                new lang_string('enabledashboardunreadmsgs', 'local_eudecustom'), new lang_string('enabledashboardunreadmsgs_desc', 'local_eudecustom'), 0, 1));
+                new lang_string('enabledashboardunreadmsgs', 'local_eudecustom'),
+				new lang_string('enabledashboardunreadmsgs_desc', 'local_eudecustom'), 0, 1));
     }
     $ADMIN->add('localplugins', $settings);
 }
