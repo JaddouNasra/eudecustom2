@@ -67,11 +67,11 @@ if ($hassiteconfig) {
 
         $settings->add(new admin_setting_configcheckbox('local_eudecustom_enabledashboardpendingactivities',
                 new lang_string('enabledashboardpendingactivities', 'local_eudecustom'),
-				new lang_string('enabledashboardpendingactivities_desc', 'local_eudecustom'), 0, 1));
+                new lang_string('enabledashboardpendingactivities_desc', 'local_eudecustom'), 0, 1));
 
         $settings->add(new admin_setting_configcheckbox('local_eudecustom_enabledashboardunreadmsgs',
                 new lang_string('enabledashboardunreadmsgs', 'local_eudecustom'),
-				new lang_string('enabledashboardunreadmsgs_desc', 'local_eudecustom'), 0, 1));
+                new lang_string('enabledashboardunreadmsgs_desc', 'local_eudecustom'), 0, 1));
     }
     $ADMIN->add('localplugins', $settings);
 }
