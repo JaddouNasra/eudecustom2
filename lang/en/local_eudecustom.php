@@ -169,6 +169,18 @@ $string['dashboardcourseprogressnottracked'] = 'Completion tracking is not enabl
 $string['eudedashboardcategoryconvocatory'] = 'Upcoming courses.<br>Starting in ';
 $string['eudedashboardupcomingcourse'] = 'Upcoming course';
 
+$string['dashboardsettings'] = 'Dashboard settings';
+$string['enabledashboardpendingactivities'] = 'Pending activities filter';
+$string['enabledashboardpendingactivities_desc'] = 'Enable a filter in the teacher dashboard to filter courses by pending activities';
+$string['enabledashboardunreadmsgs'] = 'Unread forum posts filter';
+$string['enabledashboardunreadmsgs_desc'] = 'Enable a filter in the teacher dashboard to filter courses by unread posts in forums';
+
+
+
+
+
+
+
 
 
 

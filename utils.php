@@ -264,6 +264,19 @@ function get_course_students($courseid, $rolename) {
 }
 
 /**
+ * This function returns the users in a given course with a determined role.
+ *
+ * @param int $courseid
+ * @param int $roleid
+ * @return array $data array of users
+ */
+function get_course_students_by_roleid($courseid, $roleid) {
+    $context = context_course::instance($courseid);
+    $users = get_role_users($roleid, $context);
+    return $users;
+}
+
+/**
  * This function returns the name of the enroled course categories of an user.
  *
  * @param int $userid
@@ -1738,11 +1751,11 @@ function get_dashboard_teacher_data($userid) {
             $processeddata->totalactivestudents ++;
         }
 
-        if ($processeddata->courses[$dashboardentry->courseid]->activestudents == "pendingactivities") {
+        if ($processeddata->courses[$dashboardentry->courseid]->pendingactivities == "pendingactivities") {
             $processeddata->totalpendingactivities ++;
         }
 
-        if ($processeddata->courses[$dashboardentry->courseid]->activestudents == "pendingmessages") {
+        if ($processeddata->courses[$dashboardentry->courseid]->pendingmessages == "pendingmessages") {
             $processeddata->totalpendingmessages ++;
         }
     }
@@ -1836,7 +1849,9 @@ function get_dashboard_course_completion($userid, $courseid) {
     $data = "";
 
     $course = $DB->get_record('course', array('id' => $courseid));
-    $completionpercent = \core_completion\progress::get_course_progress_percentage($course, $userid);
+    //$completionpercent = \core_completion\progress::get_course_progress_percentage($course, $userid);
+    $snappercent = \theme_snap\local::course_completion_progress($course);
+    $completionpercent = $snappercent->progress;
 
     if ($completionpercent) {
         $data = $completionpercent;
@@ -2093,25 +2108,23 @@ function check_dashboard_active_users_in_course($courseid) {
  * @return string $data classes for renderer
  */
 function check_dashboard_pending_activities_in_course($courseid) {
+    global $DB;
+    global $CFG;
     $data = "";
 
-    $cms = grade_get_gradable_activities($courseid);
-    $students = get_course_students($courseid, 'student');
-    $needsgrading = 0;
+    if ($CFG->local_eudecustom_enabledashboardpendingactivities == 1) {
+        require_once($CFG->dirroot . '/local/mr/bootstrap.php');
+        require_once($CFG->dirroot . '/blocks/reports/plugin/jouleclassneedsgrading/class.php');
 
-    if ($cms) {
-        foreach ($cms as $cm) {
-            foreach ($students as $student) {
-                if (!grade_is_user_graded_in_activity($cm, $student->id)) {
-                    $needsgrading++;
-                }
-            }
-        }
+        $url = new moodle_url('/blocks/reports/view.php', array('courseid' => $courseid));
+        $report = new block_reports_plugin_jouleclassneedsgrading_class($url, $courseid);
+        $result = $report->get_sql('count(DISTINCT u.id) as usersnotgraded', 'u.suspended = 0', array());
+        $record = $DB->get_record_sql($result[0], $result[1], 0, 0);
+        if ($record->usersnotgraded > 0) {
+            $data = "pendingactivities";
+        }  
     }
-
-    if ($needsgrading > 0) {
-        $data = "pendingactivities";
-    }
+    
 
     return $data;
 }
@@ -2123,20 +2136,30 @@ function check_dashboard_pending_activities_in_course($courseid) {
  * @return string $data classes for renderer
  */
 function check_dashboard_pending_messages_in_course($courseid) {
+    global $CFG;
     $data = "";
+    if ($CFG->local_eudecustom_enabledashboardunreadmsgs == 1) {
+        $unreadposts = 0;
+        $numunreadpost = 0;
 
-    $unreadposts = 0;
-    $forums = mod_forum_external::get_forums_by_courses(array($courseid));
-    $course = context_course::instance($courseid);
+        $forums = mod_forum_external::get_forums_by_courses(array($courseid));
+        $course = context_course::instance($courseid);
 
-    foreach ($forums as $forum) {
-        $forumcm = get_coursemodule_from_id('forum', $forum->id);
-        $unreadposts += forum_tp_count_forum_unread_posts($forumcm, $course, true);
+        foreach ($forums as $forum) {
+            //$forumcm = get_coursemodule_from_id('forum', $forum->id);
+            $forumcm = get_coursemodule_from_instance('forum', $forum->id, $forum->course);
+            //$unreadposts += forum_tp_count_forum_unread_posts($forumcm, $course, true);
+            $unreadposts = forum_get_discussions_unread($forumcm);
+
+            foreach ($unreadposts as $key => $value) {
+                $numunreadpost += intval($value);
+            }
+        }
+
+        //if ($unreadposts > 0) {
+        if ($numunreadpost > 0) {
+            $data = "pendingmessages";
+        }
     }
-
-    if ($unreadposts > 0) {
-        $data = "pendingmessages";
-    }
-
     return $data;
 }

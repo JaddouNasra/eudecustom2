@@ -169,3 +169,9 @@ $string['dashboardcategorycourseprogresstext'] = '% de los módulos completados'
 $string['dashboardcourseprogressnottracked'] = 'No está habilitado el rastreo de finalización en este curso';
 $string['eudedashboardcategoryconvocatory'] = 'Próximamente.<br>Convocatoria en ';
 $string['eudedashboardupcomingcourse'] = 'Próximamente';
+
+$string['dashboardsettings'] = 'Ajustes del dashboard';
+$string['enabledashboardpendingactivities'] = 'Filtro de actividades pendientes';
+$string['enabledashboardpendingactivities_desc'] = 'Habilita un filtro en el dashboard del profesor para filtrar los cursos por actividades pendientes de calificar';
+$string['enabledashboardunreadmsgs'] = 'Filtro de mensajes no leidos en foros';
+$string['enabledashboardunreadmsgs_desc'] = 'Habilita un filtro en el dashboard del profesor para filtrar los cursos por los que tienen mensajes sin leer en los foros';

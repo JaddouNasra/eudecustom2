@@ -96,6 +96,7 @@ class eudedashboard_renderer extends \plugin_renderer_base {
      * @return string html to output.
      */
     public function eude_dashboard_teacher_page($data) {
+        global $CFG;
         $response = '';
         $response .= $this->header();
 
@@ -118,21 +119,25 @@ class eudedashboard_renderer extends \plugin_renderer_base {
         $html .= "<i class='icon edbicon fa fa-info-circle'></i>";
         $html .= html_writer::end_tag('button');
 
-        $html .= html_writer::start_tag('button',
+        if ($CFG->local_eudecustom_enabledashboardpendingactivities == 1) {
+            $html .= html_writer::start_tag('button',
                                         array('class' => "btn btn-default dashboardbtn dashboardbtnteacherpendingactivities",
                                               'id' => "dashboardbtnteacherpendingactivities"));
-        $html .= "<span class='edb-number edb-teacherpendingactivities'>" . $data->totalpendingactivities  . "</span>";
-        $html .= "<span class='edb-text'>" . get_string('dashboardbtnteacherpendingactivities', 'local_eudecustom') . "</span>";
-        $html .= "<i class='icon edbicon fa fa-arrow-down'></i>";
-        $html .= html_writer::end_tag('button');
+            $html .= "<span class='edb-number edb-teacherpendingactivities'>" . $data->totalpendingactivities  . "</span>";
+            $html .= "<span class='edb-text'>" . get_string('dashboardbtnteacherpendingactivities', 'local_eudecustom') . "</span>";
+            $html .= "<i class='icon edbicon fa fa-arrow-down'></i>";
+            $html .= html_writer::end_tag('button');
+        }
 
-        $html .= html_writer::start_tag('button',
+        if ($CFG->local_eudecustom_enabledashboardunreadmsgs == 1) {
+            $html .= html_writer::start_tag('button',
                                         array('class' => "btn btn-default dashboardbtn dashboardbtnteacherpendingmessages",
                                               'id' => "dashboardbtnteacherpendingmessages"));
-        $html .= "<span class='edb-number edb-teacherpendingmessages'>" . $data->totalpendingmessages  . "</span>";
-        $html .= "<span class='edb-text'>" . get_string('dashboardbtnteacherpendingmessages', 'local_eudecustom') . "</span>";
-        $html .= "<i class='icon edbicon fa fa-check-circle'></i>";
-        $html .= html_writer::end_tag('button');
+            $html .= "<span class='edb-number edb-teacherpendingmessages'>" . $data->totalpendingmessages  . "</span>";
+            $html .= "<span class='edb-text'>" . get_string('dashboardbtnteacherpendingmessages', 'local_eudecustom') . "</span>";
+            $html .= "<i class='icon edbicon fa fa-check-circle'></i>";
+            $html .= html_writer::end_tag('button');
+        }
 
         $html .= html_writer::end_div();
 
